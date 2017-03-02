@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,10 @@ class User extends Authenticatable
         $this->attributes['password']=bcrypt($password);
     }
 
+    public function setBirthdateAttribute($date)
+    {
+        $this->attributes['birthdate']=Carbon::parse($date)->format('Y/m/d');
+    }
 
 //    public function setPhotoAttribute($file)
 //    {

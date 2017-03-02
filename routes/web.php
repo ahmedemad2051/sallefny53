@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/registerForm', '\App\Http\Controllers\Auth\RegisterController@register');
 
 Route::group(['middleware'=>'auth'],function(){
 
